@@ -12,6 +12,12 @@ class NewComp extends Component {
           //interval:null,
           timer:0,
         };
+     this.toogleDiv=this.toogleDiv.bind(this)
+       }
+
+       toogleDiv=()=>{
+        const {show}=this.state;
+        this.setState({show:!show})
        }
 
  componentDidMount(){
@@ -41,14 +47,26 @@ class NewComp extends Component {
 render(){
     return(
         <div className="App">
+           
+        <br/> 
+         <button onClick={this.toogleDiv}>Toggle div</button>
+         <br/>
+         {this.state.show && <NewComp/>}
+        
          <h3>Fullname: {this.Person.fullname}</h3>
          <img src={this.Person.imgSrc} alt="imaaage"></img>
          <h3>Bio: {this.Person.bio}</h3>
          <h3>Profession: {this.Person.profession}</h3>
          <h3>Interval: {this.state.timer}</h3>
+        
         </div>
     );
     
 }
+
+
+
 }
 export default NewComp;
+
+
