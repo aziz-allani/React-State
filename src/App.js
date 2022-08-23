@@ -3,16 +3,14 @@ import "./App.css";
 import React from "react";
 //import button from "@mui/material";
 import NewComp from "./component/NewComp";
-import Count from "./component/Count";
+//import Count from "./component/Count";
+import aa from "./component/aa.jpg"
+
+
 
 
 class App extends React.Component {
- state = {
-   fullname: "Aziz",
-   bio:"************",
-   imgSrc:"",
-   profession:"Student"
- };
+
 
  //handleClick=()=>this.setState({fullname: 'Aziz',
  //bio:'************',
@@ -27,9 +25,9 @@ color:"black",
 
   return(
     <>
-    <h1 style={this.styles}>Welcome!</h1>
+  
     <NewComp/>
-    <Count/>
+    
     </>
   )
 }

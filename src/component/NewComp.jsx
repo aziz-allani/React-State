@@ -1,48 +1,51 @@
-import React, {Component} from "react"
-import aa from "./aa.jpg"
-import bb from "./bb.jpg"
+import {Component} from "react"
+ import bb from "./bb.jpg"
+// import bb from "./bb.jpg"
+//import { useState} from "react";
+
+
 class NewComp extends Component {
        constructor(props){
         super(props);
        
         this.state={
-           
-            fullname: "fullname...",
-   bio:"bio...",
-   imgURL:aa,
-   profession:"Profession...",
-   bouton:"See More!",
+          //interval:null,
+          timer:0,
         };
        }
 
-
-
-styles={fontStyle:"italic" , color:"purple"};
-
-ButtonChange=()=> {this.setState({
-    message:"Profile Card",
-    fullname: "Aziz Allani",
-bio:"life is life",
-imgSrc:"",
-profession:"Student",
-bouton:"Profile ",
+ componentDidMount(){
+    this.setState({ interval:setInterval(()=>{
+        this.setState({timer:this.state.timer+1});
+    },1000),
 });
-};
+ }
+   
 
-imageChange=()=>{this.setState({
-    imageURL: bb,
-})}
+
+ componentWillUnmount(){
+    clearInterval(this.state.interval);
+ }
+
+ Person={
+    fullname:"Aziz Allani",
+    profession:"Student",
+    imgSrc:bb,
+    bio:"Life is Life",
+ };
+
+
+
+
 
 render(){
     return(
         <div className="App">
-            <h3 style={this.styles}>{this.state.fullname} {this.state.bio} {this.state.profession}</h3>
-            <button onClick={this.ButtonChange}> {this.state.bouton}</button>
-            <p/>
-            <img style={{width:"30px" , height:"30px"}} 
-            src={this.imageChange} 
-            alt="imaaaaaaage"
-            />
+         <h3>Fullname: {this.Person.fullname}</h3>
+         <img src={this.Person.imgSrc} alt="imaaage"></img>
+         <h3>Bio: {this.Person.bio}</h3>
+         <h3>Profession: {this.Person.profession}</h3>
+         <h3>Interval: {this.state.timer}</h3>
         </div>
     );
     
