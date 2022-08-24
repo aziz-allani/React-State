@@ -1,21 +1,21 @@
-//import { useState } from "react";
+
 import "./App.css";
 import React from "react";
-//import button from "@mui/material";
 import NewComp from "./component/NewComp";
-//import Count from "./component/Count";
-import bb from "./component/bb.jpg"
-
 
 
 
 class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {show: false}
+   
+   }
 
 
- //handleClick=()=>this.setState({fullname: 'Aziz',
- //bio:'************',
- //profession:'Student'})
-
+   toogleDiv=()=>{
+    this.setState({show: !this.state.show})
+   }
 
 
 
@@ -23,7 +23,10 @@ class App extends React.Component {
 
   return(
     <>
-      <NewComp/>
+    <button onClick={this.toogleDiv}>Toggle div</button>
+         <br/>
+         {this.state.show && <NewComp/>}
+   
         
   
     

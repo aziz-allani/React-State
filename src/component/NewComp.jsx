@@ -1,7 +1,5 @@
 import {Component} from "react"
  import bb from "./bb.jpg"
-// import bb from "./bb.jpg"
-//import { useState} from "react";
 
 
 class NewComp extends Component {
@@ -9,7 +7,6 @@ class NewComp extends Component {
         super(props);
        
         this.state={
-          //interval:null,
           timer:0,
         };
      this.toogleDiv=this.toogleDiv.bind(this)
@@ -27,8 +24,6 @@ class NewComp extends Component {
 });
  }
    
-
-
  componentWillUnmount(){
     clearInterval(this.state.interval);
  }
@@ -41,17 +36,11 @@ class NewComp extends Component {
  };
 
 
-
-
-
 render(){
     return(
         <div className="App">
            
         <br/> 
-         <button onClick={this.toogleDiv}>Toggle div</button>
-         <br/>
-         {this.state.show && <NewComp/>}
         
          <h3>Fullname: {this.Person.fullname}</h3>
          <img src={this.Person.imgSrc} alt="imaaage"></img>
